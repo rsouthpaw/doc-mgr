@@ -1,0 +1,23 @@
+package files
+
+import "time"
+
+const (
+	file_name_timestamp_format = "212006-150405"
+)
+
+func getNewFileName() string {
+	return time.Now().Format(file_name_timestamp_format)
+}
+func addNewFile(fileId, name, userId, department string, expiry time.Time) error {
+	return addNewFileEntity(fileId, name, userId, department, expiry)
+}
+func getFiles(email string) ([]File, error) {
+	return getFilesEntity(email)
+}
+func readFile(id string) ([]byte, error) {
+	return readFileEntity(id)
+}
+func updateFile(id, newData string) error {
+	return updateFileEntity(id, newData)
+}
